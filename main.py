@@ -40,4 +40,3 @@ with open(markdown_file, 'r') as out:
 with open(rus_dict_file, "w") as output:
     for row in translating_strings:
         output.write(str(row) + '\n')
-
