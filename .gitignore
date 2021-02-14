@@ -3,3 +3,4 @@ venv
 updater
 *.sh
 .idea
+.DS_Store
