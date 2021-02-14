@@ -1,6 +1,9 @@
 import unicodedata as ud
 from bs4 import BeautifulSoup
 from markdown import markdown
+import nltk
+
+nltk.download('punkt')
 
 
 def get_sorted_dictionaries_by_lists(keys_list, values_list) -> dict:
@@ -16,6 +19,16 @@ def get_sorted_dictionaries_by_lists(keys_list, values_list) -> dict:
 def get_text_from_markdown(init_text):
     html = markdown(init_text)
     return ''.join(BeautifulSoup(html, features="html.parser").findAll(text=True))
+
+
+def add_language_items_to_list(language_items, str_line):
+    tokens = nltk.sent_tokenize(str_line)
+    if len(tokens) > 0:
+        for token in tokens:
+            if not only_roman_chars(token):
+                language_item = token.strip()
+                if language_item not in language_items:
+                    language_items.append(language_item)
 
 
 def is_latin(uchr):
