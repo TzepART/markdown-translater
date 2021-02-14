@@ -1,22 +1,17 @@
-markdown_file = 'data/work_v2.md'
-en_markdown_file = 'data/work_v2_en.md'
+from src.file_helpers import get_strip_lines_by_file
+from src.string_helpers import get_sorted_dictionaries_by_lists
+
+
+markdown_file = 'data/readme.md'
+en_markdown_file = 'data/readme_en.md'
 rus_dict_file = 'data/dictionaries/rus.txt'
 en_dict_file = 'data/dictionaries/en.txt'
 
 
-with open(rus_dict_file, 'r') as out:
-    keys = map(lambda s: s.strip(), out.readlines())
+keys = get_strip_lines_by_file(rus_dict_file)
+values = get_strip_lines_by_file(en_dict_file)
 
-
-with open(en_dict_file, 'r') as out:
-    values = map(lambda s: s.strip(), out.readlines())
-
-dictionary = dict(zip(keys, values))
-
-
-sorted_dictionary = {}
-for k in sorted(dictionary, key=len, reverse=True):
-    sorted_dictionary[k] = dictionary[k]
+sorted_dictionary = get_sorted_dictionaries_by_lists(keys, values)
 
 with open(markdown_file, 'r') as out:
     new_text = out.read()
