@@ -1,7 +1,6 @@
 from src.string_helpers import get_text_from_markdown, add_language_items_to_list
 from src.file_helpers import FilePathsData, write_list_to_file, get_text_by_file
 
-
 translating_strings = []
 
 text = get_text_from_markdown(get_text_by_file(FilePathsData.markdown_file))
