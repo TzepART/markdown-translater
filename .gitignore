@@ -1,5 +1,4 @@
-data/*.md
-data/dictionaries/*.txt
+data
 venv
 updater
 *.sh

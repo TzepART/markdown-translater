@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from markdown import markdown
 import nltk
 
-nltk.download('punkt')
+# nltk.download('punkt')
 
 
 def get_sorted_dictionaries_by_lists(keys_list, values_list) -> dict:
